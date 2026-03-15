@@ -1,13 +1,300 @@
-body {
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+[data-theme='light'] {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --card-bg: #ffffff;
+  --accent-color: #007bff;
+  --header-color: #0056b3;
+  --font-main: 'Segoe UI', Roboto, sans-serif;
+  --border-color: #dee2e6;
+}
+
+[data-theme='dark'] {
+  --bg-color: #121212;
+  --text-color: #e9ecef;
+  --card-bg: #1e1e1e;
+  --accent-color: #bb86fc;
+  --header-color: #03dac6;
+  --font-main: 'Courier New', monospace; 
+  --border-color: #333333;
+}
+
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  transition: background-color 0.4s ease, color 0.4s ease;
+  padding-bottom: 50px;
+}
+
+.content-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.app-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 20px;
+}
+
+.app-header nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--header-color);
+}
+
+section {
+  background: var(--card-bg);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: background-color 0.4s ease;
+}
+
+h1, h2, h3 {
+  color: var(--header-color);
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.mood-slider, .slider-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.mood-slide-img, .slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+.styled-table th, .styled-table td {
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.styled-table th {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.mood-overlay {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: bottom 0.4s ease;
+  padding: 20px;
+  text-align: center;
+}
+
+.mood-slider:hover .mood-overlay {
+  bottom: 0;
+}
+/* У файлі App.css */
+
+.mood-slider {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background: #000;
+  border-radius: 15px;
+}
+
+.mood-slide {
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Якщо ви хочете плавне згасання замість display: none, 
+   використовуйте цей підхід у CSS: */
+.mood-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+}
+
+.mood-slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.theme-btn, .project-link-btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 2px solid var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.theme-btn:hover, .project-link-btn:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+.slider-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.7);
+  color: #000;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+.slider-container button:hover {
+  background: var(--accent-color);
+  color: white;
+}
+
+.slider-container button:first-of-type { left: 15px; }
+.slider-container button:last-of-type { right: 15px; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20; 
+  display: flex;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #fff;
+  transform: scale(1.4);
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+.spline-wrapper {
+  width: 100%;
+  height: 500px; 
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: transform 0.3s ease;
+}
+
+.spline-wrapper:hover {
+  transform: scale(1.02); 
+}
+
+.hint {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .spline-wrapper {
+    height: 350px;
+  }
+}
+
+/* Медіа-запити */
+@media (max-width: 768px) {
+  .mood-slider, .slider-container {
+    height: 300px;
+  }
+  
+  .content-wrapper {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mood-slider, .slider-container {
+    height: 250px;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  
+  .app-header nav {
+    flex-direction: column;
+    gap: 15px;
+  }
 }

@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# My Personal Page & Pollyclinic APP 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Особливості проекту
 
-In the project directory, you can run:
+Згідно з технічним завданням, у проекті реалізовано:
 
-### `npm start`
+### [cite_start]1. Особиста інформація та контент 
+* [cite_start]**Профіль:** Ім'я, email та 3 слова, що описують мене.
+* [cite_start]**Академічні успіхи:** Таблиця з предметами минулого семестру, викладачами та оцінками.
+* [cite_start]**Медіа:** Список 5 улюблених фільмів та цитата з джерелом.
+* [cite_start]**Локація:** Цікаві факти про Харків та інтерактивна Google Карта.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### [cite_start]2. Динаміка та UX 
+* **Перемикач тем:** Повна підтримка світлої та темної тем. [cite_start]Змінюються кольори фону, шрифти (тип та колір) та оформлення таблиць. 
+* [cite_start]**Mood Slider:** Інтерактивне слайд-шоу "Мій настрій" з автоперемиканням через JS та появою тексту при наведенні. 
+* [cite_start]**City Gallery:** Слайдер фотографій Харкова.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### [cite_start]3. 3D Проект: Pollyclinic APP
+Окрема сторінка, присвячена моєму улюбленому проекту:
+* **Технології:** Three.js (@react-three/fiber & @react-three/drei).
+* **Інтерактивність:** Власна 3D-модель (літачок Telegram), експортована з Blender. 
+* **Зворотний зв'язок:** Натискання на модель переспрямовує користувача безпосередньо в Telegram-додаток.
 
-### `npm test`
+### [cite_start]4. Технічні вимоги 
+* [cite_start]**Адаптивність:** Сайт повністю "гумовий" і коректно працює на десктопах, планшетах та смартфонах.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Технологічний стек
+* **Frontend:** React 18, React Router v6.
+* **3D:** Three.js, React Three Fiber.
+* **Стилізація:** CSS Variables (для тем), Flexbox, Grid.
 
-### `npm run build`
+## Як запустити проект
+1. Клонуйте репозиторій.
+2. Встановіть залежності: `npm install`.
+3. Запустіть проект: `npm start`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
